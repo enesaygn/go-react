@@ -1,0 +1,1103 @@
+basePath: /
+definitions:
+  models.Ariza:
+    properties:
+      ArizaID:
+        type: integer
+      CreateDate:
+        type: string
+      CreateUserFullName:
+        type: string
+      CreateUserID:
+        type: integer
+      DetayStatusu:
+        type: string
+      aciklama:
+        type: string
+      arizaBloklar:
+        items:
+          $ref: '#/definitions/models.ArizaBloklar'
+        type: array
+      arizaDetayID:
+        type: integer
+      arizaLogID:
+        type: integer
+      arizaNedenAdi:
+        type: string
+      arizaNedenID:
+        type: integer
+      arizaStatusu:
+        type: string
+      arizaTipi:
+        type: string
+      arizaTipiTanimAdi:
+        type: string
+      arizaTipiTanimID:
+        type: integer
+      asama:
+        type: string
+      bakimOperatoruEmployeeID:
+        type: integer
+      bakimOperatoruFullName:
+        type: string
+      bakimUzmaniEmployeeID:
+        type: integer
+      bakimUzmaniFullName:
+        type: string
+      baslamaTarihi:
+        type: string
+      bitisTarihi:
+        type: string
+      blokTarafi:
+        type: string
+      ekip:
+        type: string
+      isletmeUzmaniEmployeeID:
+        type: integer
+      isletmeUzmaniFullName:
+        type: string
+      kaliteKontrolVePaketlemeEmployeeID:
+        type: integer
+      kaliteKontrolVePaketlemeFullName:
+        type: string
+      karsilikliBloklarEtkilenmisMi:
+        type: boolean
+      kisiSayisi:
+        type: integer
+      makineAdi:
+        type: string
+      makineID:
+        type: integer
+      pozisyonlar:
+        items:
+          type: integer
+        type: array
+      prosesCalisaniEmployeeID:
+        type: integer
+      prosesCalisaniFullName:
+        type: string
+      suresi:
+        type: integer
+      tekrarCount:
+        type: integer
+      testAciklamasi:
+        type: string
+      testTalebiKaynagi:
+        type: string
+      testeGonderenEmployeeName:
+        type: string
+      toplamEtkilenenPozisyonSayisi:
+        type: integer
+      updateDate:
+        type: string
+      updateUserFullName:
+        type: string
+      updateUserID:
+        type: integer
+      yapilanMudahele:
+        type: string
+      yetkiGrupID:
+        type: integer
+    type: object
+  models.ArizaBloklar:
+    properties:
+      BlokNo:
+        type: integer
+      Pozisyonlar:
+        items:
+          type: integer
+        type: array
+    type: object
+  models.ArizaCreateRequestBody:
+    properties:
+      Aciklama:
+        type: string
+      ArizaTipi:
+        type: string
+      ArizaTipiTanimID:
+        type: integer
+      BlokTarafi:
+        type: string
+      Bloklar:
+        items:
+          type: integer
+        type: array
+      MakineID:
+        type: integer
+      Pozisyonlar:
+        items:
+          type: integer
+        type: array
+      UserID:
+        type: integer
+    type: object
+  models.ArizaDetay:
+    properties:
+      Aciklama:
+        type: string
+      ArizaDurumu:
+        type: string
+      ArizaID:
+        type: integer
+      ArizaTipi:
+        type: string
+      ArizaTipiTanimAdi:
+        type: string
+      ArizaTipiTanimID:
+        type: integer
+      BlokTarafi:
+        type: string
+      Bloklar:
+        items:
+          type: integer
+        type: array
+      CreateUserName:
+        type: string
+      Detay: {}
+      IsEmriOlusturmaTarihi:
+        type: string
+      MakineAdi:
+        type: string
+      MakineID:
+        type: integer
+      Pozisyonlar:
+        items:
+          type: integer
+        type: array
+    type: object
+  models.ArizaDuzenlemeRequest:
+    properties:
+      Aciklama:
+        type: string
+      ArizaID:
+        type: integer
+      ArizaNedenID:
+        type: integer
+      ArizaTipi:
+        type: string
+      ArizaTipiTanimID:
+        type: integer
+      BlokTarafi:
+        type: string
+      Bloklar:
+        items:
+          type: integer
+        type: array
+      KullanilanMalzemeler:
+        items:
+          $ref: '#/definitions/models.KullanilanMalzeme'
+        type: array
+      MakineID:
+        type: integer
+      Pozisyonlar:
+        items:
+          type: integer
+        type: array
+      UserID:
+        type: integer
+      YapilanMudahale:
+        type: string
+    type: object
+  models.ArizaNedenleri:
+    properties:
+      ArizaNedenAdi:
+        type: string
+      ArizaNedenID:
+        type: integer
+    type: object
+  models.ArizaOnayiRequest:
+    properties:
+      ArizaID:
+        type: integer
+      UserID:
+        type: integer
+    type: object
+  models.ArizaTekrarRequest:
+    properties:
+      ArizaID:
+        type: integer
+      ArizaTekrarNedeni:
+        type: string
+      UserID:
+        type: integer
+    type: object
+  models.ArizaTipTanimlar:
+    properties:
+      ArizaTipiTanimAdi:
+        type: string
+      ArizaTipiTanimID:
+        type: integer
+    type: object
+  models.ArizaYapildiRequest:
+    properties:
+      ArizaID:
+        type: integer
+      ArizaNedenID:
+        type: integer
+      KarsilikliBloklarEtkilenmisMi:
+        type: boolean
+      KullanilanMalzemeler:
+        items:
+          $ref: '#/definitions/models.KullanilanMalzeme'
+        type: array
+      ToplamEtkilenPozisyonSayisi:
+        type: integer
+      UserID:
+        type: integer
+      YapilanMudahele:
+        type: string
+    type: object
+  models.AtamaRequest:
+    properties:
+      ArizaID:
+        type: integer
+      UserID:
+        type: integer
+    type: object
+  models.BakimUzmaniTarafindanAcilanArizaYapildiRequest:
+    properties:
+      ArizaID:
+        type: integer
+      ArizaNedenID:
+        type: integer
+      KullanilanMalzemeler:
+        items:
+          $ref: '#/definitions/models.KullanilanMalzeme'
+        type: array
+      UserID:
+        type: integer
+      YapilanMudahele:
+        type: string
+    type: object
+  models.Blok:
+    properties:
+      blokID:
+        type: integer
+      blokName:
+        type: string
+    type: object
+  models.BlokPozisyonResponse:
+    properties:
+      blok:
+        type: string
+      pozisyon:
+        items:
+          $ref: '#/definitions/models.Pozisyon'
+        type: array
+    type: object
+  models.BloklarGetRequest:
+    properties:
+      blokTarafi:
+        type: string
+    type: object
+  models.Employee:
+    properties:
+      email:
+        type: string
+      employeeID:
+        type: integer
+      fullName:
+        type: string
+      userName:
+        type: string
+    type: object
+  models.GetArizaRequestBody:
+    properties:
+      ArizaID:
+        type: integer
+      ArizaStatusu:
+        type: string
+      UserID:
+        type: integer
+    type: object
+  models.GetArizalarRequestBody:
+    properties:
+      ArizaStatusu:
+        type: string
+      UserID:
+        type: integer
+    type: object
+  models.GetRoleRGetUserRoleFromTokenResponse:
+    properties:
+      employeeId:
+        type: integer
+      role:
+        type: string
+    type: object
+  models.GetUserRoleFromTokenRequest:
+    properties:
+      token:
+        type: string
+    type: object
+  models.IsTransferiRequest:
+    properties:
+      ArizaID:
+        type: integer
+      UserID:
+        type: integer
+    type: object
+  models.IsletmeUzmaniTestTalebiRequest:
+    properties:
+      ArizaID:
+        type: integer
+      UserID:
+        type: integer
+    type: object
+  models.KaliteKontrolVePaketlemeOlumsuzTestSonucuRequest:
+    properties:
+      ArizaID:
+        type: integer
+      TestAciklama:
+        type: string
+      UserID:
+        type: integer
+    type: object
+  models.KaliteKontrolVePaketlemeTestOnayiRequest:
+    properties:
+      Aciklama:
+        type: string
+      ArizaID:
+        type: integer
+      UserID:
+        type: integer
+    type: object
+  models.KullanilanMalzeme:
+    properties:
+      MalzemeID:
+        type: integer
+      Miktar:
+        type: integer
+    type: object
+  models.KullanilanMalzemeler:
+    properties:
+      MalzemeAdi:
+        type: string
+      MalzemeID:
+        type: integer
+    type: object
+  models.LoginRequest:
+    properties:
+      password:
+        type: string
+      userInfo:
+        type: string
+    type: object
+  models.LoginResponse:
+    properties:
+      token:
+        type: string
+    type: object
+  models.Makina:
+    properties:
+      makinaID:
+        type: integer
+      makinaName:
+        type: string
+    type: object
+  models.Pozisyon:
+    properties:
+      name:
+        type: string
+      pozisyonID:
+        type: integer
+    type: object
+  models.PozisyonlarGetRequest:
+    properties:
+      blokIDs:
+        items:
+          type: integer
+        type: array
+    type: object
+  models.RequestBody:
+    properties:
+      employeeID:
+        type: integer
+    type: object
+  models.RequestBodyAriza:
+    properties:
+      ArizaID:
+        type: integer
+    type: object
+  models.SAPGonderRequest:
+    properties:
+      ArizaID:
+        type: integer
+      UserID:
+        type: integer
+    type: object
+host: localhost:45013
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for a microservice.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Sasa El Terminali API
+  version: "1.0"
+paths:
+  /api/v1/ariza/arizaDuzenleme:
+    post:
+      consumes:
+      - application/json
+      description: Ariza duzenleme
+      parameters:
+      - description: ArizaDuzenlemeRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArizaDuzenlemeRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Ariza duzenleme
+      tags:
+      - ariza
+  /api/v1/ariza/arizaTekrari:
+    post:
+      consumes:
+      - application/json
+      description: Açılan arızanın tekrarlaması halinde kullanıcadak API. Her senaryoda
+        bu API kullanılmalı
+      parameters:
+      - description: ArizaTekrarRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArizaTekrarRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Ariza Tekrarlaması
+      tags:
+      - ariza
+  /api/v1/ariza/arizaYapildi:
+    post:
+      consumes:
+      - application/json
+      description: Ariza yapildi
+      parameters:
+      - description: ArizaYapildiRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArizaYapildiRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Ariza yapildi
+      tags:
+      - ariza
+  /api/v1/ariza/atama:
+    post:
+      consumes:
+      - application/json
+      description: Bakim operatoru atama
+      parameters:
+      - description: AtamaRequestBody
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AtamaRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Bakim operatoru atama
+      tags:
+      - ariza
+  /api/v1/ariza/bakimUzmaniArizaDuzenleme:
+    post:
+      consumes:
+      - application/json
+      description: Bakım uzmanının açtığı Arıza senaryosunda kullanılması gereken
+        arıza düzenleme API'si
+      parameters:
+      - description: ArizaDuzenlemeRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArizaDuzenlemeRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Bakım uzmanı ariza duzenleme
+      tags:
+      - ariza
+  /api/v1/ariza/bakimUzmaniTarafindanAcilanArizaYapildi:
+    post:
+      consumes:
+      - application/json
+      description: Bakim uzmani tarafindan acilan arizanın yapıldı olarak işaretlenmesini
+        sağlayan API. ArizaYapildi API'sinden farkı bu API'yi yalnızca Bakım Uzmanı'nın
+        Açtığı arızaların Yapıldı kısmı için kullanacağız.
+      parameters:
+      - description: BakimUzmaniTarafindanAcilanArizaYapildiRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.BakimUzmaniTarafindanAcilanArizaYapildiRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Bakim uzmani tarafindan açılan ariza yapıldı
+      tags:
+      - ariza
+  /api/v1/ariza/createAriza:
+    post:
+      consumes:
+      - application/json
+      description: Arıza Oluşturma
+      parameters:
+      - description: ArizaID
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArizaCreateRequestBody'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.ArizaCreateRequestBody'
+      security:
+      - Bearer: []
+      summary: Arıza Oluşturma
+      tags:
+      - ariza
+  /api/v1/ariza/delete:
+    post:
+      consumes:
+      - application/json
+      description: Ariza sil
+      parameters:
+      - description: ArizaID
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.RequestBodyAriza'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Delete ariza by ID
+      tags:
+      - ariza
+  /api/v1/ariza/get:
+    post:
+      consumes:
+      - application/json
+      description: Ariza getir
+      parameters:
+      - description: ArizaID
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.GetArizaRequestBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ArizaDetay'
+      security:
+      - Bearer: []
+      summary: Get ariza by ID
+      tags:
+      - ariza
+  /api/v1/ariza/getAll:
+    post:
+      consumes:
+      - application/json
+      description: Arizaları getir
+      parameters:
+      - description: GetArizalarRequestBody
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.GetArizalarRequestBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                $ref: '#/definitions/models.Ariza'
+              type: array
+            type: object
+      security:
+      - Bearer: []
+      summary: Get all arizalar
+      tags:
+      - ariza
+  /api/v1/ariza/getArizaNedenleri:
+    post:
+      consumes:
+      - application/json
+      description: Ariza nedenleri getir
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ArizaNedenleri'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all ariza nedenleri
+      tags:
+      - ariza
+  /api/v1/ariza/getArizaTipTanimlar:
+    post:
+      consumes:
+      - application/json
+      description: Ariza tip tanımları getir
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ArizaTipTanimlar'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all ariza tip tanimlar
+      tags:
+      - ariza
+  /api/v1/ariza/getKullanilanMalzemeler:
+    post:
+      consumes:
+      - application/json
+      description: Kullanılan malzemeler getir
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.KullanilanMalzemeler'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all kullanilan malzemeler
+      tags:
+      - ariza
+  /api/v1/ariza/isTransferi:
+    post:
+      consumes:
+      - application/json
+      description: Is transferi
+      parameters:
+      - description: IsTransferiRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.IsTransferiRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Is transferi
+      tags:
+      - ariza
+  /api/v1/ariza/isletmeUzmaniTestTalebi:
+    post:
+      consumes:
+      - application/json
+      description: Isletme calisani test talebi
+      parameters:
+      - description: IsletmeUzmaniTestTalebiRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.IsletmeUzmaniTestTalebiRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Isletme calisani test talebi
+      tags:
+      - ariza
+  /api/v1/ariza/kaliteKontrolVePaketlemeOlumsuzTestSonucu:
+    post:
+      consumes:
+      - application/json
+      description: Kalite kontrol ve paketleme olumsuz test sonucu
+      parameters:
+      - description: KaliteKontrolVePaketlemeOlumsuzTestSonucuRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.KaliteKontrolVePaketlemeOlumsuzTestSonucuRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Kalite kontrol ve paketleme olumsuz test sonucu
+      tags:
+      - ariza
+  /api/v1/ariza/kaliteKontrolVePaketlemeTestOnayi:
+    post:
+      consumes:
+      - application/json
+      description: Kalite kontrol ve paketleme test onayi
+      parameters:
+      - description: KaliteKontrolVePaketlemeTestOnayiRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.KaliteKontrolVePaketlemeTestOnayiRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Kalite kontrol ve paketleme test onayi
+      tags:
+      - ariza
+  /api/v1/ariza/prosesPersoneliArizaOnayi:
+    post:
+      consumes:
+      - application/json
+      description: Proses personeli ariza onayi
+      parameters:
+      - description: ArizaOnayiRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArizaOnayiRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Proses personeli ariza onayi
+      tags:
+      - ariza
+  /api/v1/ariza/sapGonder:
+    post:
+      consumes:
+      - application/json
+      description: SAP gönder
+      parameters:
+      - description: SAPGonderRequest
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.SAPGonderRequest'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: SAP gönder
+      tags:
+      - ariza
+  /api/v1/bloklarGet:
+    post:
+      consumes:
+      - application/json
+      description: Get all blocks
+      parameters:
+      - description: BlokTarafi
+        in: body
+        name: blokTarafi
+        required: true
+        schema:
+          $ref: '#/definitions/models.BloklarGetRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Blok'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all blocks
+      tags:
+      - ariza
+  /api/v1/getUserRoleFromToken:
+    post:
+      consumes:
+      - application/json
+      description: Get user role from token
+      parameters:
+      - description: Token
+        in: body
+        name: token
+        required: true
+        schema:
+          $ref: '#/definitions/models.GetUserRoleFromTokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.GetRoleRGetUserRoleFromTokenResponse'
+      security:
+      - Bearer: []
+      summary: Get user role from token
+      tags:
+      - employees
+  /api/v1/login:
+    post:
+      consumes:
+      - application/json
+      description: Authenticate user and return JWT token
+      parameters:
+      - description: Username and password
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.LoginResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Login user
+      tags:
+      - .auth
+  /api/v1/makinalarGet:
+    post:
+      consumes:
+      - application/json
+      description: Get all machines
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Makina'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all machines
+      tags:
+      - ariza
+  /api/v1/pozisyonlarGet:
+    post:
+      consumes:
+      - application/json
+      description: Get all positions
+      parameters:
+      - description: BlokIDs
+        in: body
+        name: BlokIDs
+        required: true
+        schema:
+          $ref: '#/definitions/models.PozisyonlarGetRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.BlokPozisyonResponse'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all positions
+      tags:
+      - ariza
+  /employeeCreate:
+    post:
+      consumes:
+      - application/json
+      description: Create an employee
+      parameters:
+      - description: Employee object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Employee'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Employee'
+      security:
+      - Bearer: []
+      summary: Create an employee
+      tags:
+      - employees
+  /employeeDelete:
+    post:
+      consumes:
+      - application/json
+      description: Delete an employee by ID
+      parameters:
+      - description: Employee ID
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/models.RequestBody'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      security:
+      - Bearer: []
+      summary: Delete an employee
+      tags:
+      - employees
+  /employeeGet:
+    post:
+      consumes:
+      - application/json
+      description: Get an employee by ID
+      parameters:
+      - description: EmployeeID
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/models.RequestBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Employee'
+      security:
+      - Bearer: []
+      summary: Get an employee
+      tags:
+      - employees
+  /employeeUpdate:
+    post:
+      consumes:
+      - application/json
+      description: Update an employee
+      parameters:
+      - description: Employee object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Employee'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Employee'
+      security:
+      - Bearer: []
+      summary: Update an employee
+      tags:
+      - employees
+  /employeesGetAll:
+    post:
+      consumes:
+      - application/json
+      description: Get all employees
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Employee'
+            type: array
+      security:
+      - Bearer: []
+      summary: Get all employees
+      tags:
+      - employees
+securityDefinitions:
+  Bearer:
+    description: '"Type ''Bearer'' followed by a space and then your token."'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

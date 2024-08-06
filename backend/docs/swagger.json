@@ -1,0 +1,1747 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for a microservice.",
+        "title": "Sasa El Terminali API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:45013",
+    "basePath": "/",
+    "paths": {
+        "/api/v1/ariza/arizaDuzenleme": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Ariza duzenleme",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Ariza duzenleme",
+                "parameters": [
+                    {
+                        "description": "ArizaDuzenlemeRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaDuzenlemeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/arizaTekrari": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Açılan arızanın tekrarlaması halinde kullanıcadak API. Her senaryoda bu API kullanılmalı",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Ariza Tekrarlaması",
+                "parameters": [
+                    {
+                        "description": "ArizaTekrarRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaTekrarRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/arizaYapildi": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Ariza yapildi",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Ariza yapildi",
+                "parameters": [
+                    {
+                        "description": "ArizaYapildiRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaYapildiRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/atama": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Bakim operatoru atama",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Bakim operatoru atama",
+                "parameters": [
+                    {
+                        "description": "AtamaRequestBody",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AtamaRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/bakimUzmaniArizaDuzenleme": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Bakım uzmanının açtığı Arıza senaryosunda kullanılması gereken arıza düzenleme API'si",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Bakım uzmanı ariza duzenleme",
+                "parameters": [
+                    {
+                        "description": "ArizaDuzenlemeRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaDuzenlemeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/bakimUzmaniTarafindanAcilanArizaYapildi": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Bakim uzmani tarafindan acilan arizanın yapıldı olarak işaretlenmesini sağlayan API. ArizaYapildi API'sinden farkı bu API'yi yalnızca Bakım Uzmanı'nın Açtığı arızaların Yapıldı kısmı için kullanacağız.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Bakim uzmani tarafindan açılan ariza yapıldı",
+                "parameters": [
+                    {
+                        "description": "BakimUzmaniTarafindanAcilanArizaYapildiRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.BakimUzmaniTarafindanAcilanArizaYapildiRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/createAriza": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Arıza Oluşturma",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Arıza Oluşturma",
+                "parameters": [
+                    {
+                        "description": "ArizaID",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaCreateRequestBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaCreateRequestBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/delete": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Ariza sil",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Delete ariza by ID",
+                "parameters": [
+                    {
+                        "description": "ArizaID",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RequestBodyAriza"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/get": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Ariza getir",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get ariza by ID",
+                "parameters": [
+                    {
+                        "description": "ArizaID",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.GetArizaRequestBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaDetay"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/getAll": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Arizaları getir",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all arizalar",
+                "parameters": [
+                    {
+                        "description": "GetArizalarRequestBody",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.GetArizalarRequestBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/models.Ariza"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/getArizaNedenleri": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Ariza nedenleri getir",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all ariza nedenleri",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ArizaNedenleri"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/getArizaTipTanimlar": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Ariza tip tanımları getir",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all ariza tip tanimlar",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ArizaTipTanimlar"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/getKullanilanMalzemeler": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Kullanılan malzemeler getir",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all kullanilan malzemeler",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.KullanilanMalzemeler"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/isTransferi": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Is transferi",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Is transferi",
+                "parameters": [
+                    {
+                        "description": "IsTransferiRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.IsTransferiRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/isletmeUzmaniTestTalebi": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Isletme calisani test talebi",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Isletme calisani test talebi",
+                "parameters": [
+                    {
+                        "description": "IsletmeUzmaniTestTalebiRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.IsletmeUzmaniTestTalebiRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/kaliteKontrolVePaketlemeOlumsuzTestSonucu": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Kalite kontrol ve paketleme olumsuz test sonucu",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Kalite kontrol ve paketleme olumsuz test sonucu",
+                "parameters": [
+                    {
+                        "description": "KaliteKontrolVePaketlemeOlumsuzTestSonucuRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.KaliteKontrolVePaketlemeOlumsuzTestSonucuRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/kaliteKontrolVePaketlemeTestOnayi": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Kalite kontrol ve paketleme test onayi",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Kalite kontrol ve paketleme test onayi",
+                "parameters": [
+                    {
+                        "description": "KaliteKontrolVePaketlemeTestOnayiRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.KaliteKontrolVePaketlemeTestOnayiRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/prosesPersoneliArizaOnayi": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Proses personeli ariza onayi",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Proses personeli ariza onayi",
+                "parameters": [
+                    {
+                        "description": "ArizaOnayiRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ArizaOnayiRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/ariza/sapGonder": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "SAP gönder",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "SAP gönder",
+                "parameters": [
+                    {
+                        "description": "SAPGonderRequest",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SAPGonderRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/v1/bloklarGet": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get all blocks",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all blocks",
+                "parameters": [
+                    {
+                        "description": "BlokTarafi",
+                        "name": "blokTarafi",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.BloklarGetRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Blok"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/getUserRoleFromToken": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get user role from token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Get user role from token",
+                "parameters": [
+                    {
+                        "description": "Token",
+                        "name": "token",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.GetUserRoleFromTokenRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.GetRoleRGetUserRoleFromTokenResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Authenticate user and return JWT token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    ".auth"
+                ],
+                "summary": "Login user",
+                "parameters": [
+                    {
+                        "description": "Username and password",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.LoginRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.LoginResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/makinalarGet": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get all machines",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all machines",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Makina"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pozisyonlarGet": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get all positions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ariza"
+                ],
+                "summary": "Get all positions",
+                "parameters": [
+                    {
+                        "description": "BlokIDs",
+                        "name": "BlokIDs",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PozisyonlarGetRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.BlokPozisyonResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/employeeCreate": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Create an employee",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Create an employee",
+                "parameters": [
+                    {
+                        "description": "Employee object",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Employee"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Employee"
+                        }
+                    }
+                }
+            }
+        },
+        "/employeeDelete": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Delete an employee by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Delete an employee",
+                "parameters": [
+                    {
+                        "description": "Employee ID",
+                        "name": "id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RequestBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/employeeGet": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get an employee by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Get an employee",
+                "parameters": [
+                    {
+                        "description": "EmployeeID",
+                        "name": "id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RequestBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Employee"
+                        }
+                    }
+                }
+            }
+        },
+        "/employeeUpdate": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Update an employee",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Update an employee",
+                "parameters": [
+                    {
+                        "description": "Employee object",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Employee"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Employee"
+                        }
+                    }
+                }
+            }
+        },
+        "/employeesGetAll": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get all employees",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "employees"
+                ],
+                "summary": "Get all employees",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Employee"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Ariza": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "CreateDate": {
+                    "type": "string"
+                },
+                "CreateUserFullName": {
+                    "type": "string"
+                },
+                "CreateUserID": {
+                    "type": "integer"
+                },
+                "DetayStatusu": {
+                    "type": "string"
+                },
+                "aciklama": {
+                    "type": "string"
+                },
+                "arizaBloklar": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ArizaBloklar"
+                    }
+                },
+                "arizaDetayID": {
+                    "type": "integer"
+                },
+                "arizaLogID": {
+                    "type": "integer"
+                },
+                "arizaNedenAdi": {
+                    "type": "string"
+                },
+                "arizaNedenID": {
+                    "type": "integer"
+                },
+                "arizaStatusu": {
+                    "type": "string"
+                },
+                "arizaTipi": {
+                    "type": "string"
+                },
+                "arizaTipiTanimAdi": {
+                    "type": "string"
+                },
+                "arizaTipiTanimID": {
+                    "type": "integer"
+                },
+                "asama": {
+                    "type": "string"
+                },
+                "bakimOperatoruEmployeeID": {
+                    "type": "integer"
+                },
+                "bakimOperatoruFullName": {
+                    "type": "string"
+                },
+                "bakimUzmaniEmployeeID": {
+                    "type": "integer"
+                },
+                "bakimUzmaniFullName": {
+                    "type": "string"
+                },
+                "baslamaTarihi": {
+                    "type": "string"
+                },
+                "bitisTarihi": {
+                    "type": "string"
+                },
+                "blokTarafi": {
+                    "type": "string"
+                },
+                "ekip": {
+                    "type": "string"
+                },
+                "isletmeUzmaniEmployeeID": {
+                    "type": "integer"
+                },
+                "isletmeUzmaniFullName": {
+                    "type": "string"
+                },
+                "kaliteKontrolVePaketlemeEmployeeID": {
+                    "type": "integer"
+                },
+                "kaliteKontrolVePaketlemeFullName": {
+                    "type": "string"
+                },
+                "karsilikliBloklarEtkilenmisMi": {
+                    "type": "boolean"
+                },
+                "kisiSayisi": {
+                    "type": "integer"
+                },
+                "makineAdi": {
+                    "type": "string"
+                },
+                "makineID": {
+                    "type": "integer"
+                },
+                "pozisyonlar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "prosesCalisaniEmployeeID": {
+                    "type": "integer"
+                },
+                "prosesCalisaniFullName": {
+                    "type": "string"
+                },
+                "suresi": {
+                    "type": "integer"
+                },
+                "tekrarCount": {
+                    "type": "integer"
+                },
+                "testAciklamasi": {
+                    "type": "string"
+                },
+                "testTalebiKaynagi": {
+                    "type": "string"
+                },
+                "testeGonderenEmployeeName": {
+                    "type": "string"
+                },
+                "toplamEtkilenenPozisyonSayisi": {
+                    "type": "integer"
+                },
+                "updateDate": {
+                    "type": "string"
+                },
+                "updateUserFullName": {
+                    "type": "string"
+                },
+                "updateUserID": {
+                    "type": "integer"
+                },
+                "yapilanMudahele": {
+                    "type": "string"
+                },
+                "yetkiGrupID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ArizaBloklar": {
+            "type": "object",
+            "properties": {
+                "BlokNo": {
+                    "type": "integer"
+                },
+                "Pozisyonlar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "models.ArizaCreateRequestBody": {
+            "type": "object",
+            "properties": {
+                "Aciklama": {
+                    "type": "string"
+                },
+                "ArizaTipi": {
+                    "type": "string"
+                },
+                "ArizaTipiTanimID": {
+                    "type": "integer"
+                },
+                "BlokTarafi": {
+                    "type": "string"
+                },
+                "Bloklar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "MakineID": {
+                    "type": "integer"
+                },
+                "Pozisyonlar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ArizaDetay": {
+            "type": "object",
+            "properties": {
+                "Aciklama": {
+                    "type": "string"
+                },
+                "ArizaDurumu": {
+                    "type": "string"
+                },
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "ArizaTipi": {
+                    "type": "string"
+                },
+                "ArizaTipiTanimAdi": {
+                    "type": "string"
+                },
+                "ArizaTipiTanimID": {
+                    "type": "integer"
+                },
+                "BlokTarafi": {
+                    "type": "string"
+                },
+                "Bloklar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "CreateUserName": {
+                    "type": "string"
+                },
+                "Detay": {},
+                "IsEmriOlusturmaTarihi": {
+                    "type": "string"
+                },
+                "MakineAdi": {
+                    "type": "string"
+                },
+                "MakineID": {
+                    "type": "integer"
+                },
+                "Pozisyonlar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "models.ArizaDuzenlemeRequest": {
+            "type": "object",
+            "properties": {
+                "Aciklama": {
+                    "type": "string"
+                },
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "ArizaNedenID": {
+                    "type": "integer"
+                },
+                "ArizaTipi": {
+                    "type": "string"
+                },
+                "ArizaTipiTanimID": {
+                    "type": "integer"
+                },
+                "BlokTarafi": {
+                    "type": "string"
+                },
+                "Bloklar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "KullanilanMalzemeler": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.KullanilanMalzeme"
+                    }
+                },
+                "MakineID": {
+                    "type": "integer"
+                },
+                "Pozisyonlar": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "UserID": {
+                    "type": "integer"
+                },
+                "YapilanMudahale": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ArizaNedenleri": {
+            "type": "object",
+            "properties": {
+                "ArizaNedenAdi": {
+                    "type": "string"
+                },
+                "ArizaNedenID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ArizaOnayiRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ArizaTekrarRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "ArizaTekrarNedeni": {
+                    "type": "string"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ArizaTipTanimlar": {
+            "type": "object",
+            "properties": {
+                "ArizaTipiTanimAdi": {
+                    "type": "string"
+                },
+                "ArizaTipiTanimID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ArizaYapildiRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "ArizaNedenID": {
+                    "type": "integer"
+                },
+                "KarsilikliBloklarEtkilenmisMi": {
+                    "type": "boolean"
+                },
+                "KullanilanMalzemeler": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.KullanilanMalzeme"
+                    }
+                },
+                "ToplamEtkilenPozisyonSayisi": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                },
+                "YapilanMudahele": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.AtamaRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.BakimUzmaniTarafindanAcilanArizaYapildiRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "ArizaNedenID": {
+                    "type": "integer"
+                },
+                "KullanilanMalzemeler": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.KullanilanMalzeme"
+                    }
+                },
+                "UserID": {
+                    "type": "integer"
+                },
+                "YapilanMudahele": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Blok": {
+            "type": "object",
+            "properties": {
+                "blokID": {
+                    "type": "integer"
+                },
+                "blokName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.BlokPozisyonResponse": {
+            "type": "object",
+            "properties": {
+                "blok": {
+                    "type": "string"
+                },
+                "pozisyon": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Pozisyon"
+                    }
+                }
+            }
+        },
+        "models.BloklarGetRequest": {
+            "type": "object",
+            "properties": {
+                "blokTarafi": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Employee": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "employeeID": {
+                    "type": "integer"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.GetArizaRequestBody": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "ArizaStatusu": {
+                    "type": "string"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.GetArizalarRequestBody": {
+            "type": "object",
+            "properties": {
+                "ArizaStatusu": {
+                    "type": "string"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.GetRoleRGetUserRoleFromTokenResponse": {
+            "type": "object",
+            "properties": {
+                "employeeId": {
+                    "type": "integer"
+                },
+                "role": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.GetUserRoleFromTokenRequest": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.IsTransferiRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.IsletmeUzmaniTestTalebiRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.KaliteKontrolVePaketlemeOlumsuzTestSonucuRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "TestAciklama": {
+                    "type": "string"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.KaliteKontrolVePaketlemeTestOnayiRequest": {
+            "type": "object",
+            "properties": {
+                "Aciklama": {
+                    "type": "string"
+                },
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.KullanilanMalzeme": {
+            "type": "object",
+            "properties": {
+                "MalzemeID": {
+                    "type": "integer"
+                },
+                "Miktar": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.KullanilanMalzemeler": {
+            "type": "object",
+            "properties": {
+                "MalzemeAdi": {
+                    "type": "string"
+                },
+                "MalzemeID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.LoginRequest": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "userInfo": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.LoginResponse": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Makina": {
+            "type": "object",
+            "properties": {
+                "makinaID": {
+                    "type": "integer"
+                },
+                "makinaName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Pozisyon": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "pozisyonID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.PozisyonlarGetRequest": {
+            "type": "object",
+            "properties": {
+                "blokIDs": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "models.RequestBody": {
+            "type": "object",
+            "properties": {
+                "employeeID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.RequestBodyAriza": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.SAPGonderRequest": {
+            "type": "object",
+            "properties": {
+                "ArizaID": {
+                    "type": "integer"
+                },
+                "UserID": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "description": "\"Type 'Bearer' followed by a space and then your token.\"",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

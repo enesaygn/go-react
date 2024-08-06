@@ -1,0 +1,23 @@
+# Temel imaj
+FROM node:14
+
+# Çalışma dizinini oluşturun
+WORKDIR /app
+
+# Paket tanımlama dosyalarını kopyalayın
+COPY package*.json ./
+COPY frontend ./
+# Bağımlılıkları yükleyin
+RUN npm install
+
+# Uygulama dosyalarını kopyalayın
+COPY . .
+
+# Uygulama derlemesi
+RUN npm run build
+
+# Bağlantı noktalarını açın
+EXPOSE 3000
+
+# Uygulamanızı başlatın
+CMD ["npm", "start"]
